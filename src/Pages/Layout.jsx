@@ -13,9 +13,9 @@ const Layout = () => {
   return (
     <>
       <SideBarMobile />
-      <div className='flex w-full'>
+      <div className='flex w-full bg-[#f5f1ed]'>
         <SideBar />
-        <div className='w-full bg-[#F1F3F4]' onClick={() => dispatch(setOpen(!open))}>
+        <div className='w-full  p-8' onClick={() => dispatch(setOpen(!open))}>
           <Outlet />
         </div>
       </div>
