@@ -4,6 +4,9 @@ import Button from '../../Components/Button/Button'
 import Nav from '../../Components/Nav/Nav'
 import TotalCard from '../../Components/TotalCard/TotalCard'
 import { Package } from 'lucide-react'
+import { Link } from 'react-router'
+import LowStockAlert from '../../Components/LowStockAlert/LowStockAlert'
+
 const Dashboard = () => {
   return (
     <>
@@ -11,11 +14,13 @@ const Dashboard = () => {
         <Button text={"Categories"} className={"bg-white hover:bg-[#fafafa]"}>
           <FolderOpen size={18} />
         </Button>
-        <Button text={"Add Product"} className={"bg-[#2d5f3f] text-white hover:bg-[#264f35]"}>
-          <Plus size={18} />
-        </Button>
+        <Link to="/products">
+          <Button text={"Add Product"} className={"bg-[#2d5f3f] text-white hover:bg-[#264f35]"}>
+            <Plus size={18} />
+          </Button>
+        </Link>
       </Nav>
-      <div className='grid grid-cols-4 mt-8 gap-6'>
+      <div className='grid grid-cols-4 mt-8 gap-6 max-lg:grid-cols-2'>
         <TotalCard title={"Total Products"} total={"2"} description={"2 active"}>
           <Package size={26} className="text-[#2d5f3f]" />
         </TotalCard>
@@ -29,6 +34,7 @@ const Dashboard = () => {
           <TrendingDown size={26} color='#8d6e63' className="text-[#2d5f3f]" />
         </TotalCard>
       </div>
+      <LowStockAlert />
     </>
   )
 }
