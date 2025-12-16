@@ -1,4 +1,5 @@
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const API_BASE_URL = "http://142.93.183.201:8001/api/v1"
+// const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export const setToken = (token) => localStorage.setItem("authToken", token);
 export const getToken = () => {
