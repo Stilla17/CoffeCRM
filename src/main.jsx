@@ -1,17 +1,20 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
-import { BrowserRouter } from 'react-router'
-import { Provider } from 'react-redux'
-import store from './store/store.js'
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App.jsx";
+import { BrowserRouter } from "react-router";
+import { Provider } from "react-redux";
+import store from "./store/store.js";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Toaster } from "sonner";
+const queryClient = new QueryClient();
 
-createRoot(document.getElementById('root')).render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <StrictMode>
+createRoot(document.getElementById("root")).render(
+  <QueryClientProvider client={queryClient}>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Toaster position="top center"/>
         <App />
-      </StrictMode>
-    </BrowserRouter>
-  </Provider>
-)
+      </BrowserRouter>
+    </Provider>
+  </QueryClientProvider>
+);
