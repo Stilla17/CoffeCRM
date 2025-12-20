@@ -1,51 +1,77 @@
-// const API_BASE_URL = "http://142.93.183.201:8001/api/v1"
+import axios from "axios";
+
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
+const apiInstance = axios.create({
+  baseURL: API_BASE_URL,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+
 export const setToken = (token) => localStorage.setItem("authToken", token);
+
 export const getToken = () => {
   return localStorage.getItem("access_token") || localStorage.getItem("token");
 };
+
 export const removeToken = () => localStorage.removeItem("authToken");
+
+apiInstance.interceptors.request.use((config) => {
+  const token = getToken();
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
 
 export const api = {
   async login(email, password) {
-    const response = await fetch(`${API_BASE_URL}/login/`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
-    });
+    try {
+      const response = await apiInstance.post("/login/", { email, password });
 
-    if (!response.ok) {
-      const error = await response.json().catch(() => ({}));
-      throw new Error(error.detail || "Login failed");
-    }
+      const data = response.data;
 
-    const data = await response.json();
-    if (data.access_token || data.token) {
-      setToken(data.access_token || data.token);
+      if (data.access_token || data.token) {
+        setToken(data.access_token || data.token);
+      }
+
+      return data;
+    } catch (error) {
+      const msg =
+        error.response?.data?.detail ||
+        error.response?.data?.non_field_errors?.[0] ||
+        error.message ||
+        "Login failed";
+
+      throw new Error(msg);
     }
-    return data;
   },
 
   async register(userData) {
-    const response = await fetch(`${API_BASE_URL}/register/`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(userData),
-    });
+    try {
+      const response = await apiInstance.post("/register/", userData);
 
-    if (!response.ok) {
-      const error = await response.json().catch(() => ({}));
+      const data = response.data;
+
+      if (data.access_token || data.token) {
+        setToken(data.access_token || data.token);
+      }
+
+      return data;
+    } catch (error) {
       let msg = "Registration failed";
-      if (error.email) msg = error.email[0];
-      if (error.detail) msg = error.detail;
+
+      if (error.response?.data) {
+        const errData = error.response.data;
+
+        if (errData.email) msg = errData.email[0];
+        else if (errData.detail) msg = errData.detail;
+        else if (typeof errData === "string") msg = errData;
+        else msg = Object.values(errData)[0][0] || msg;
+      }
+
       throw new Error(msg);
     }
-
-    const data = await response.json();
-    if (data.access_token || data.token) {
-      setToken(data.access_token || data.token);
-    }
-    return data;
   },
 };
