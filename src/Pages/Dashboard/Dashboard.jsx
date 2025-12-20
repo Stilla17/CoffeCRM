@@ -6,6 +6,7 @@ import TotalCard from '../../Components/TotalCard/TotalCard'
 import { Package } from 'lucide-react'
 import { Link } from 'react-router'
 import LowStockAlert from '../../Components/LowStockAlert/LowStockAlert'
+import RecentProducts from '../../Components/RecentProducts/RecentProducts'
 
 const Dashboard = () => {
   return (
@@ -35,6 +36,9 @@ const Dashboard = () => {
         </TotalCard>
       </div>
       <LowStockAlert />
+      <div>
+        <RecentProducts />
+      </div>
     </>
   )
 }
