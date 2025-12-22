@@ -16,7 +16,7 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from "@/Components/ui/select";
 import { CustomTable } from "../../Components/table/CustomTabel";
 import { ProductTable } from "./components/ProductTable";
 import { useQuery } from "@tanstack/react-query";
