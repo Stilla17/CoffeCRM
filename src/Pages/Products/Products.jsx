@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Nav from "../../Components/Nav/Nav";
+import Nav from "../../components/Nav/Nav";
 import { Funnel, Plus } from "lucide-react";
-import Button from "../../Components/Button/Button";
+import Button from "../../components/Button/Button";
 import {
   InputGroup,
   InputGroupAddon,
@@ -17,25 +17,22 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { CustomTable } from "../../Components/table/CustomTabel";
+import { CustomTable } from "../../components/table/CustomTabel";
 import { ProductTable } from "./components/ProductTable";
 import { useQuery } from "@tanstack/react-query";
 import { getAllProductsQuery } from "../../queries";
 import { ProductModal } from "./components/ProductModal";
 
 const Products = () => {
-  const [openModal, setOpenModal] = useState({open:false, type:""});
+  const [openModal, setOpenModal] = useState({ open: false, type: "" });
 
   const { data: products } = useQuery({ ...getAllProductsQuery() });
-const handleOpenModal = (text, id) => {
-  setOpenModal({open:true, type:text, id:id})
-}
+  const handleOpenModal = (text, id) => {
+    setOpenModal({ open: true, type: text, id: id });
+  };
   return (
     <div>
-      <ProductModal
-        open={openModal}
-        onClose={setOpenModal}
-      />
+      <ProductModal open={openModal} onClose={setOpenModal} />
       <Nav title={"Products"} description={"Manage your coffee inventory"}>
         <Button
           onClick={() => handleOpenModal("add")}

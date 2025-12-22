@@ -1,15 +1,11 @@
-import React from 'react'
+import React from "react";
 import { Card } from "@/Components/ui/card";
 import { CardContent } from "@/Components/ui/card";
 import { Pencil, Star, Trash2 } from "lucide-react";
-import Button from '../../../Components/Button/Button';
-import { Badge } from '@/Components/ui/badge';
+import Button from "../../../components/Button/Button";
+import { Badge } from "@/Components/ui/badge";
 
-
-
-
-
-export const CategoryCard = ({name}) => {
+export const CategoryCard = ({ name }) => {
   return (
     <Card className="rounded-2xl shadow-sm">
       <CardContent className="p-6">
@@ -50,4 +46,4 @@ export const CategoryCard = ({name}) => {
       </CardContent>
     </Card>
   );
-}
+};

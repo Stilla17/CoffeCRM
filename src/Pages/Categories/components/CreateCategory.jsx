@@ -12,7 +12,7 @@ import { Label } from "@/components/ui/label";
 import { Controller, FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { createCategorySchema } from "../scheme/categoryScheme";
-import CustomInput from "../../../Components/input/CustomInput";
+import CustomInput from "../../../components/input/CustomInput";
 import { useMutation } from "@tanstack/react-query";
 import { request } from "../../../utils/axios";
 import { toast } from "sonner";
@@ -22,34 +22,36 @@ const AddCategoryModal = ({ open, onClose }) => {
     resolver: zodResolver(createCategorySchema),
     defaultValues: {
       name: "",
-      description:"",
+      description: "",
       active: false,
     },
   });
 
   const mutation = useMutation({
-   mutationFn:async (data) => {
+    mutationFn: async (data) => {
       try {
-         const response = await request({method:"post", url:"/category", data})
-         methods.reset({
-           name: "",
-           description: "",
-           active: false,
-         });
-         toast.success("Category added successfully")
-         onClose()
-         return response.data
-
+        const response = await request({
+          method: "post",
+          url: "/category",
+          data,
+        });
+        methods.reset({
+          name: "",
+          description: "",
+          active: false,
+        });
+        toast.success("Category added successfully");
+        onClose();
+        return response.data;
       } catch (error) {
-         //
-         console.log(error);
-
+        //
+        console.log(error);
       }
-   }
-  })
+    },
+  });
 
   const handleSubmitCategory = (data) => {
-   mutation.mutate({name:data.name})
+    mutation.mutate({ name: data.name });
   };
 
   return (
@@ -70,7 +72,7 @@ const AddCategoryModal = ({ open, onClose }) => {
 
               <Controller
                 name="description"
-               //  control={methods.control}
+                //  control={methods.control}
                 render={({ field }) => (
                   <Textarea {...field} placeholder="Type your message here." />
                 )}

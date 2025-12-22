@@ -35,6 +35,9 @@ import {
   SelectValue,
   SelectSeparator,
 } from "@/components/ui/select";
+import { useMutation } from "@tanstack/react-query";
+import { request } from "../../../utils/axios";
+import { toast } from "sonner";
 
 const spokenLanguages = [
   { label: "English", value: "en" },
@@ -64,8 +67,30 @@ export const ProductModal = ({ open, onClose }) => {
       active: false,
     },
   });
-  const onSubmit = (data) => {
-    console.log(data);
+
+  const mutation = useMutation({
+    mutationFn: async (data) => {
+      try {
+        await request({ method: "post", url: "/product", data });
+        toast("Product created successfully");
+        onClose(false)
+      } catch (error) {
+        toast("Failed create product", error?.message);
+      }
+    },
+  });
+  const onSubmit = () => {
+   const {name, cost, price, category } = form.watch()
+    const productData = {
+      name: name,
+      quantity: "-41682",
+      price_in:cost,
+      price_out: price,
+      price_discounted: "-6722",
+      image: "string",
+      category: category,
+    };
+    mutation.mutate(productData)
   };
   const handleDeleteProduct = () => {
     onClose(false);
@@ -107,7 +132,7 @@ export const ProductModal = ({ open, onClose }) => {
                     render={({ field, fieldState }) => (
                       <Field data-invalid={fieldState.invalid}>
                         <FieldLabel htmlFor="form-rhf-demo-title">
-                          Product name
+                          Product name *
                         </FieldLabel>
                         <Input
                           {...field}
@@ -164,7 +189,7 @@ export const ProductModal = ({ open, onClose }) => {
                         >
                           <FieldContent>
                             <FieldLabel htmlFor="form-rhf-select-language">
-                              Spoken Language
+                              Category
                             </FieldLabel>
 
                             {fieldState.invalid && (
@@ -283,7 +308,7 @@ export const ProductModal = ({ open, onClose }) => {
                       )}
                     />
                     <Controller
-                      name="stock"
+                      name="minStock"
                       control={form.control}
                       render={({ field, fieldState }) => (
                         <Field data-invalid={fieldState.invalid}>
