@@ -5,10 +5,6 @@ import { Pencil, Star, Trash2 } from "lucide-react";
 import Button from '../../../Components/Button/Button';
 import { Badge } from '@/Components/ui/badge';
 
-
-
-
-
 export const CategoryCard = ({name}) => {
   return (
     <Card className="rounded-2xl shadow-sm">
