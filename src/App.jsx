@@ -6,8 +6,8 @@ import Products from "./Pages/Products/Products";
 import Layout from "./Pages/Layout";
 import SignIn from "./Pages/SignIn/SignIn";
 import SignUp from "./Pages/SignUp/SignUp";
-import ProtectedRoute from "./components/Route/ProtectedRoute";
 import { getToken } from "./store/api";
+import ProtectedRoute from './components/Route/ProtectedRoute.jsx';
 
 const App = () => {
   const token = getToken();
