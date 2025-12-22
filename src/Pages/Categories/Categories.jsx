@@ -1,6 +1,6 @@
 import { Plus } from "lucide-react";
-import Button from "../../Components/Button/Button";
-import Nav from "../../Components/Nav/Nav";
+import Button from "../../components/Button/Button";
+import Nav from "../../components/Nav/Nav";
 import { CategoryCard } from "./components/CategoryCard";
 import { useQuery } from "@tanstack/react-query";
 import { getAllCategoriesQuery } from "../../queries";

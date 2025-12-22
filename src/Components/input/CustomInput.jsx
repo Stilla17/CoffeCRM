@@ -5,8 +5,8 @@ import {
   FormControl,
   FormDescription,
   FormMessage,
-} from "@/Components/ui/form";
-import { Input } from "@/Components/ui/input";
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
 
 const CustomInput = ({
   control,

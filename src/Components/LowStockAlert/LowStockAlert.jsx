@@ -1,6 +1,6 @@
-import { Alert, AlertTitle } from "@/Components/ui/alert";
-import { Card, CardContent } from "@/Components/ui/card";
-import { Badge } from "@/Components/ui/badge";
+import { Alert, AlertTitle } from "@/components/ui/alert";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { AlertTriangle } from "lucide-react";
 
 const LowStockAlert = () => {

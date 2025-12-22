@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import SideBar from '../Components/SideBar/SideBar'
+import SideBar from '../components/SideBar/SideBar'
 import { Outlet } from 'react-router'
-import SideBarMobile from '../Components/SideBar/SideBarMobile'
+import SideBarMobile from '../components/SideBar/SideBarMobile'
 import { useDispatch, useSelector } from 'react-redux'
 import { setOpen } from '../store/features/toggleSlice'
 

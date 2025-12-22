@@ -3,16 +3,16 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-} from "@/Components/ui/dialog";
-import { Button } from "@/Components/ui/button";
-import { Input } from "@/Components/ui/input";
-import { Textarea } from "@/Components/ui/textarea";
-import { Switch } from "@/Components/ui/switch";
-import { Label } from "@/Components/ui/label";
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Switch } from "@/components/ui/switch";
+import { Label } from "@/components/ui/label";
 import { Controller, FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { createCategorySchema } from "../scheme/categoryScheme";
-import CustomInput from "../../../Components/input/CustomInput";
+import CustomInput from "../../../components/input/CustomInput";
 import { useMutation } from "@tanstack/react-query";
 import { request } from "../../../utils/axios";
 import { toast } from "sonner";

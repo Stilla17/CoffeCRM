@@ -7,8 +7,8 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/Components/ui/table";
-import { Button } from "@/Components/ui/button";
+} from "@/components/ui/table";
+import { Button } from "@/components/ui/button";
 import { Delete, SquarePen, Trash2 } from "lucide-react";
 
 

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import Nav from "../../Components/Nav/Nav";
+import Nav from "../../components/Nav/Nav";
 import { Funnel, Plus } from "lucide-react";
-import Button from "../../Components/Button/Button";
+import Button from "../../components/Button/Button";
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
-} from "@/Components/ui/input-group";
+} from "@/components/ui/input-group";
 import { SearchIcon } from "lucide-react";
 import {
   Select,
@@ -16,8 +16,8 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from "@/Components/ui/select";
-import { CustomTable } from "../../Components/table/CustomTabel";
+} from "@/components/ui/select";
+import { CustomTable } from "../../components/table/CustomTabel";
 import { ProductTable } from "./components/ProductTable";
 import { useQuery } from "@tanstack/react-query";
 import { getAllProductsQuery } from "../../queries";

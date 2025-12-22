@@ -1,12 +1,12 @@
 import { FolderOpen, Plus, TrendingDown, TrendingUp } from 'lucide-react'
 import React from 'react'
-import Button from '../../Components/Button/Button'
-import Nav from '../../Components/Nav/Nav'
-import TotalCard from '../../Components/TotalCard/TotalCard'
+import Button from '../../components/Button/Button'
+import Nav from '../../components/Nav/Nav'
+import TotalCard from '../../components/TotalCard/TotalCard'
 import { Package } from 'lucide-react'
 import { Link } from 'react-router'
-import LowStockAlert from '../../Components/LowStockAlert/LowStockAlert'
-import RecentProducts from '../../Components/RecentProducts/RecentProducts'
+import LowStockAlert from '../../components/LowStockAlert/LowStockAlert'
+import RecentProducts from '../../components/RecentProducts/RecentProducts'
 
 const Dashboard = () => {
   return (

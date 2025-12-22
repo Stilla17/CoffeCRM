@@ -6,7 +6,7 @@ import Products from "./Pages/Products/Products";
 import Layout from "./Pages/Layout";
 import SignIn from "./Pages/SignIn/SignIn";
 import SignUp from "./Pages/SignUp/SignUp";
-import ProtectedRoute from "./Components/Route/ProtectedRoute";
+import ProtectedRoute from "./components/Route/ProtectedRoute";
 import { getToken } from "./store/api";
 
 const App = () => {

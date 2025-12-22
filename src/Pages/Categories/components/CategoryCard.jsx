@@ -1,9 +1,9 @@
 import React from 'react'
-import { Card } from "@/Components/ui/card";
-import { CardContent } from "@/Components/ui/card";
+import { Card } from "@/components/ui/card";
+import { CardContent } from "@/components/ui/card";
 import { Pencil, Star, Trash2 } from "lucide-react";
-import Button from '../../../Components/Button/Button';
-import { Badge } from '@/Components/ui/badge';
+import Button from '../../../components/Button/Button';
+import { Badge } from '@/components/ui/badge';
 
 export const CategoryCard = ({name}) => {
   return (

@@ -3,8 +3,8 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-} from "@/Components/ui/dialog";
-import { Button } from "@/Components/ui/button";
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
 import { Trash2 } from "lucide-react";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -16,14 +16,14 @@ import {
   FieldGroup,
   FieldLabel,
   FieldContent,
-} from "@/Components/ui/field";
+} from "@/components/ui/field";
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupText,
   InputGroupTextarea,
-} from "@/Components/ui/input-group";
-import { Input } from "@/Components/ui/input";
+} from "@/components/ui/input-group";
+import { Input } from "@/components/ui/input";
 
 import {
   Select,
@@ -34,7 +34,7 @@ import {
   SelectTrigger,
   SelectValue,
   SelectSeparator,
-} from "@/Components/ui/select";
+} from "@/components/ui/select";
 
 const spokenLanguages = [
   { label: "English", value: "en" },
